@@ -6,6 +6,9 @@ describe("Class", () => {
   }
 
   class Order {}
+
+  class Deliver {} 
+  
   it("Should can create class", () => {
     const customer: Customer = new Customer();
     const order: Order = new Order();
