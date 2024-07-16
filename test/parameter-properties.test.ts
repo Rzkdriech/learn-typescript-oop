@@ -11,3 +11,5 @@ describe("Parameter Properties", () => {
     console.info(person.name);
   });
 });
+
+
