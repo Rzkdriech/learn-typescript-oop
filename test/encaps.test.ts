@@ -1,4 +1,4 @@
-import Arithmetic from "../src/example/encapsulation";
+import {Arithmetic, StudentExams} from "../src/example/encapsulation"
 
 describe("Arithmetic", () => {
   it("should support math", () => {
@@ -9,4 +9,10 @@ describe("Arithmetic", () => {
     console.info(math.doDivide())
     console.info(math.doMultiply())
   });
+
+  it("should support student exams", () => {
+    const student: StudentExams = new StudentExams(90)
+
+    console.info(student.examsResult())
+  })
 });
