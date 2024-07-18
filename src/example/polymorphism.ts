@@ -7,11 +7,21 @@ export class MathOperation {
     this._value2 = _value2;
   }
 
-  public addOperation(): number {
-    return this._value1 + this._value2;
-  }
-
-  public minusOperation(): number {
-    return this._value1 - this._value2;
+  public operation(): number {
+    throw new Error("this method should be overridden by subclass")
   }
 }
+
+export class AdditionalOps extends MathOperation {
+  public operation(): number {
+    return this._value1 + this._value2
+  }
+}
+
+export class SubstractionOps extends MathOperation {
+  public operation(): number {
+    return this._value1 - this._value2
+  }
+}
+
+
