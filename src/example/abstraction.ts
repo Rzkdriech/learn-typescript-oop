@@ -38,3 +38,41 @@ export class Rectangle extends Shape {
     return 2 * (this.width + this.height);
   }
 }
+
+export abstract class Product {
+  abstract getName(): string;
+  abstract getPrice(): number;
+  abstract getCategory(): string;
+}
+
+export class Food extends Product {
+  private name: string;
+  private price: number;
+  private category: string;
+  private discount?: number;
+
+  constructor(name: string, price: number, category: string, discount: number) {
+    super();
+    this.name = name;
+    this.price = price;
+    this.category = category;
+    this.discount = discount;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  getPrice(): number {
+    if (this.discount) {
+      let disc: number = this.price * (this.discount / 100);
+      return this.price - disc;
+    }
+
+    return this.price;
+  }
+
+  getCategory(): string {
+    return this.category;
+  }
+}
