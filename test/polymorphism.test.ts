@@ -39,7 +39,28 @@ describe("Polymorphism", () => {
   });
 
   it("should support overloading", () => {
-    const math: MathOperation = new MathOperation(2, 3);
-    console.info(math.minusOperation());
+    class AdditionOps extends MathOperation {
+      public operation(): number {
+        return this._value1 + this._value2;
+      }
+    }
+
+    class SubstractionOps extends MathOperation {
+      public operation(): number {
+        return this._value1 - this._value2;
+      }
+    }
+
+    function operation(op: MathOperation): number {
+      return op.operation();
+    }
+
+    const add: MathOperation = new AdditionOps(2, 4);
+
+    console.info(operation(add));
+
+    const substr: MathOperation = new SubstractionOps(3, 5);
+
+    console.info(operation(substr));
   });
 });
