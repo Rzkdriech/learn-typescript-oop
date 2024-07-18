@@ -1,3 +1,5 @@
+import { MathOperation } from "../src/example/polymorphism";
+
 describe("Polymorphism", () => {
   class Employee {
     constructor(public name: string) {}
@@ -8,14 +10,14 @@ describe("Polymorphism", () => {
   class VicePresident extends Manager {}
 
   function sayHello(employee: Employee): void {
-    if(employee instanceof VicePresident ) {
+    if (employee instanceof VicePresident) {
       const vp = employee as VicePresident;
-      console.info(`Hello VP ${vp.name}`)
-    } else if(employee instanceof Manager) {
+      console.info(`Hello VP ${vp.name}`);
+    } else if (employee instanceof Manager) {
       const manager = employee as Manager;
-      console.info(`Hello Manager ${manager.name}`)
+      console.info(`Hello Manager ${manager.name}`);
     } else {
-      console.info(`Hello employee ${employee.name}`)
+      console.info(`Hello employee ${employee.name}`);
     }
   }
 
@@ -35,6 +37,9 @@ describe("Polymorphism", () => {
     sayHello(new Manager("Akhadi"));
     sayHello(new VicePresident("Lalu"));
   });
+
+  it("should support overloading", () => {
+    const math: MathOperation = new MathOperation(2, 3);
+    console.info(math.minusOperation());
+  });
 });
-
-
